@@ -160,14 +160,14 @@
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
   }
 </style>
-	<title>Unsupervised Domain Adaptation via Structurally Regularized Deep Clustering</title>
+	<title>Vicinal and categorical domain adaptation</title>
 </head>
 
 <body>
 <br>
 <span style="font-size:36px">
     <div style="text-align: center;">
-        Unsupervised Domain Adaptation via Structurally Regularized Deep Clustering
+        Vicinal and categorical domain adaptation
     </div>
 </span>
 <br>
@@ -175,19 +175,13 @@
 <br>
 <table align="center" width="700px">
     <tr>
-        <td align="center" width="200px">
+        <td align="center" width="300px">
             <div style="text-align: center;">
                 <span style="font-size:16px"><a href="https://huitangtang.github.io/">Hui Tang</a><sup>1</sup></span>
             </div>
         </td>
-      
-        <td align="center" width="200px">
-            <div style="text-align: center;">
-                <span style="font-size:16px"><a href="https://scholar.google.com/citations?user=pbNCoTwAAAAJ">Ke Chen</a><sup>1</sup></span>
-            </div>
-        </td>
         
-        <td align="center" width="200px">
+        <td align="center" width="300px">
             <div style="text-align: center;">
                 <span style="font-size:16px">
                     <a href="http://kuijia.site/">Kui Jia</a>
@@ -233,7 +227,7 @@
             <div style="text-align: center;">
                 <span style="font-size:20px">
                     Code
-                    <a href="https://github.com/Gorilla-Lab-SCUT/SRDC-CVPR2020">[GitHub]</a>
+                    <a href="https://github.com/huitangtang/ViCatDA">[GitHub]</a>
                 </span>
             </div>
         </td>
@@ -242,7 +236,7 @@
             <div style="text-align: center;">
                 <span style="font-size:20px">
                     Paper
-                    <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Tang_Unsupervised_Domain_Adaptation_via_Structurally_Regularized_Deep_Clustering_CVPR_2020_paper.pdf">[CVF]</a>
+                    <a href="https://arxiv.org/pdf/2103.03460">[arXiv]</a>
                 </span>
             </div>
         </td>
@@ -269,18 +263,19 @@
     <tr>
         <td>
             <div style="text-align: center;">
-                <img src="resources/SRDC.png" width="900px">
+                <img src="resources/ViCatDA.png" width="900px">
             </div>
         </td>
     </tr>
     <tr>
         <td>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-		To address a potential issue of damaging the intrinsic data discrimination by explicitly learning domain-aligned features, 
-		we propose a source-regularized, deep discriminative clustering method in order to directly uncover the intrinsic discrimination among target data, 
-		termed as Structurally Regularized Deep Clustering (SRDC). 
-		In SRDC, we also design useful ingredients to enhance target discrimination with clustering of intermediate network features, 
-		and to enhance structural regularization with soft selection of less divergent source examples.
+		To promote categorical domain adaptation (CatDA), based on a joint category-domain classifier, 
+		we propose novel losses of adversarial training at both domain and category levels. 
+		Since the joint classifier can be regarded as a concatenation of individual task classifiers respectively for the two domains, 
+		our design principle is to enforce consistency of category predictions between the two task classifiers. 
+		Moreover, we propose a concept of vicinal domains whose instances are produced by a convex combination of pairs of instances respectively from the two domains. 
+		Intuitively, alignment of the possibly infinite number of vicinal domains enhances that of original domains.
             </p>
         </td>
     </tr>
@@ -297,23 +292,20 @@
     <tr>
         <td>
             <p style="text-align:justify; text-justify:inter-ideograph;">
-		Unsupervised domain adaptation (UDA) is to make predictions for unlabeled data on a target domain, 
-		given labeled data on a source domain whose distribution shifts from the target one. 
-		Mainstream UDA methods learn aligned features between the two domains, 
-		such that a classifier trained on the source features can be readily applied to the target ones. 
-		However, such a transferring strategy has a potential risk of damaging the intrinsic discrimination of target data. 
-		To alleviate this risk, we are motivated by the assumption of structural domain similarity, 
-		and propose to directly uncover the intrinsic target discrimination via discriminative clustering of target data. 
-		We constrain the clustering solutions using structural source regularization that hinges on our assumed structural domain similarity. 
-		Technically, we use a flexible framework of deep network based discriminative clustering 
-		that minimizes the KL divergence between predictive label distribution of the network and an introduced auxiliary one; 
-		replacing the auxiliary distribution with that formed by ground-truth labels of source data 
-		implements the structural source regularization via a simple strategy of joint network training. 
-		We term our proposed method as Structurally Regularized Deep Clustering (SRDC), 
-		where we also enhance target discrimination with clustering of intermediate network features, 
-		and enhance structural regularization with soft selection of less divergent source examples. 
-		Careful ablation studies show the efficacy of our proposed SRDC. 
-		Notably, with no explicit domain alignment, SRDC outperforms all existing methods on three UDA benchmarks.
+		Unsupervised domain adaptation aims to learn a task classifier that performs well on the unlabeled target domain, by utilizing the labeled source domain. 
+		Inspiring results have been acquired by learning domain-invariant deep features via domain-adversarial training. 
+		However, its parallel design of task and domain classifiers limits the ability to achieve a finer category-level domain alignment. 
+		To promote categorical domain adaptation (CatDA), based on a joint category-domain classifier, 
+		we propose novel losses of adversarial training at both domain and category levels. 
+		Since the joint classifier can be regarded as a concatenation of individual task classifiers respectively for the two domains, 
+		our design principle is to enforce consistency of category predictions between the two task classifiers. 
+		Moreover, we propose a concept of vicinal domains whose instances are produced by a convex combination of pairs of instances respectively from the two domains. 
+		Intuitively, alignment of the possibly infinite number of vicinal domains enhances that of original domains. 
+		We propose novel adversarial losses for vicinal domain adaptation (VicDA) based on CatDA, 
+		leading to Vicinal and Categorical Domain Adaptation (ViCatDA). 
+		We also propose Target Discriminative Structure Recovery (TDSR) to recover the intrinsic target discrimination damaged by adversarial feature alignment. 
+		We also analyze the principles underlying the ability of our key designs to align the joint distributions. 
+		Extensive experiments on several benchmark datasets demonstrate that we achieve the new state of the art.
             </p>
         </td>
     </tr>
@@ -619,12 +611,14 @@ This is the end of next edition!!! -->
 </div>
       <pre>
   	<code>
-		@inproceedings{tang2020unsupervised,
-		  title={Unsupervised domain adaptation via structurally regularized deep clustering},
-		  author={Tang, Hui and Chen, Ke and Jia, Kui},
-		  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
-		  pages={8725--8735},
-		  year={2020}
+		@article{tang2021vicinal,
+		  title={Vicinal and categorical domain adaptation},
+		  author={Tang, Hui and Jia, Kui},
+		  journal={Pattern Recognition},
+		  volume={115},
+		  pages={107907},
+		  year={2021},
+		  publisher={Pergamon}
 		}
   	</code>
       </pre>
