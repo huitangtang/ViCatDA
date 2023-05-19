@@ -1,5 +1,7 @@
 # ViCatDA
-Code release for `Vicinal and categorical domain adaptation`, which has been accepted by Pattern Recognition. 
+Code release for `Vicinal and categorical domain adaptation`, which is published by Pattern Recognition in 2021. 
+
+[Project Page](https://huitangtang.github.io/ViCatDA/) $\cdot$ [PDF Download](https://arxiv.org/pdf/2103.03460)
 
 The paper is available [here](https://www.sciencedirect.com/science/article/pii/S0031320321000947) or at the [arXiv archive](https://arxiv.org/abs/2103.03460).
 
