@@ -1,0 +1,9 @@
+@article{tang2021vicinal,
+  title={Vicinal and categorical domain adaptation},
+  author={Tang, Hui and Jia, Kui},
+  journal={Pattern Recognition},
+  volume={115},
+  pages={107907},
+  year={2021},
+  publisher={Pergamon}
+}
